@@ -1,0 +1,41 @@
+domainModelNSURI "http://yelp.domainModels.flandm.unican.es"
+domainModelInstance "/es.unican.lavoisier.evaluation/models/yelp.model"
+
+// b1: Single-bounded reference
+dataset reviews {
+    mainClass Review
+    include user
+}
+
+// c1: Unbounded reference
+dataset businessAndCat {
+    mainClass Business
+    include categories by name
+}
+
+// d1-d3: Inheritance
+dataset features {
+    mainClass Feature {
+        as GroupedFeature {
+            include group
+        }
+    }
+}
+
+// d4-d6: Unbounded Inheritance
+dataset businessAndFeat {
+    mainClass Business
+    include features by name {
+        as GroupedFeature {
+            include group
+        }
+    }
+}
+
+// e2: Combination (multilevel)
+dataset revsBusnsCats {
+    mainClass Review
+    include business {
+        include categories by name
+    }
+}

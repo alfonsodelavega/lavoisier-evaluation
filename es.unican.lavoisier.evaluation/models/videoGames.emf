@@ -1,0 +1,60 @@
+@namespace(uri="http://videoGames.domainModels.flandm.unican.es", prefix="videoGames")
+package videoGames;
+
+class User {
+    attr String userName;
+    ref VideoGame[*] gamesOwned;
+    ref Group[*] groups;
+    ref Purchase[*] purchases;
+    ref User[*] friends;
+}
+
+class Group {
+    attr String name;
+    attr Date createdAt;
+}
+
+class VideoGame {
+    attr String name;
+    attr Date launchDate;
+    attr double price;
+    ref Publisher[1] publisher;
+    ref Language[*] voiceLanguages;
+    ref Language[*] textLanguages;
+    ref Tag[*] tags;
+    ref Achievement[*]#videoGame achievements;
+}
+
+class Publisher {
+    attr String name;
+}
+
+class Achievement {
+    attr String achievementId;
+    ref VideoGame[1]#achievements videoGame;
+}
+
+class UnlockedAchievement {
+    attr Date completedAt;
+    ref User[1] user;
+    ref Achievement achievement;
+}
+
+class Tag {
+    attr String name;
+}
+
+class Language {
+    attr String name;
+}
+
+class Purchase {
+    attr String purchaseId;
+    attr Date date;
+    ref PurchaseLine[*] purchaseLines;
+}
+
+class PurchaseLine {
+    attr double price;
+    ref VideoGame[1] videoGame;
+}

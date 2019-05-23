@@ -1,0 +1,26 @@
+domainModelNSURI "http://videoGames.domainModels.flandm.unican.es"
+domainModelInstance "/es.unican.lavoisier.evaluation/models/videoGames.model"
+
+// a: Single table/class
+dataset videoGames {
+    mainClass VideoGame
+}
+
+// b2: Single-bounded reference
+dataset achievements {
+    mainClass Achievement
+    include videoGame
+}
+
+// c2: Unbounded reference
+dataset videoGameAndTextLangs {
+    mainClass VideoGame
+    include textLanguages by name
+}
+
+// e1: Combination (multiple)
+dataset videoGameAndMore {
+    mainClass VideoGame
+    include tags by name
+    include publisher
+}
