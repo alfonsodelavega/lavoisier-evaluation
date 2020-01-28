@@ -15,10 +15,10 @@ dataset businessAndCat {
 
 // d1-d3: Inheritance
 dataset features {
-    mainClass Feature {
-        as GroupedFeature {
-            include group
-        }
+    mainClass Feature
+
+    as GroupedFeature {
+      include group
     }
 }
 
