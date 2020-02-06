@@ -1,7 +1,10 @@
 # Lavoisier Evaluation
 
 This project contains a set of dataset specifications expressed in Lavoisier, SQL and Pandas.
-The extraction scenarios are described in the "scenarios.png" picture, and are executed over the yelp and video games examples.
+The extraction scenarios are described in the "scenarios.png" picture, and are executed over the yelp and video games case studies.
+
+## Dataset Extraction Scenarios
+![Dataset Extraction Scenarios](scenarios.png)
 
 ## Folder Structure
 
